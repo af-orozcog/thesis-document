@@ -5,21 +5,24 @@
 \label{cha:introduction}
 Kotlin is growing to be one of the most used programming languages in mobile development with many papers and studies pointing out that it is superior to Java in terms of productivity, code safety and ease to find bugs in the code. This has propelled a series of companies to migrate their apps from Java to Kotlin in an effort to achieve the previously mentioned qualities. As well as migrating, new projects are often being chosen to be developed in Kotlin. 
 
-Given the complexity of some of the projects that are being migrated or being newly developed, there is a growing risk of developers introducing software flaws.  Numerous debugging tools have been introduced to monitor and examine the state of the code, many focusing on the aspect of resource consumption and memory leaks in Android apps, and other by using the standard breakpoint feature to navigate and examine the variables in the code from a point onwards. However, most debuggers are postmortem, which means developers cannot go back-in time and change previous states of the execution to improve their knowledge on the possible causes of the bugs present in their code. 
+Given the complexity of some of the projects that are being migrated or being newly developed, there is a growing risk of developers introducing software flaws.  Numerous debugging tools have been introduced to monitor and examine the state of the code, many focusing on the aspect of resource consumption and memory leaks in Android apps, and other by using the standard breakpoint feature to navigate and examine the variables in the code from a point onwards. However, most debuggers are postmortem, which means developers cannot go back in time and change previous states of the execution to improve their knowledge on the possible causes of the bugs present in their code. 
 
-Inspired by the back-in-time debugger DeloreanJS, this article presents a back-in-time debugger for Kotlin for reactive style developed code. This work expands on the research line for back-in time debuggers as it introduces a new language to this form of debugging, and adds on the ways to implement a back-in time debugger from using continuations as used in DeloreanJS to using a MVI architecture and storing previous states of the application to enable it to swap the current state to previous states and re run the code from a point on.
+Inspired by the back-in-time debugger DeloreanJS, this article presents a back-in-time debugger for Kotlin for reactive style developed code. This work expands on the research line for back-in-time debuggers as it introduces a new language to this form of debugging, and adds on the ways to implement a back-in-time debugger from using continuations as used in DeloreanJS to using a MVI architecture and storing previous states of the application to enable it to swap the current state to previous states and re-run the code from a point on.
 
-Concretely, we enable all of the features that DeloreanJS offers, such as:
+Concretely, we enable most of the features that DeloreanJS offers, such as:
 \begin{itemize}
     \item Fix a bug while the application is executing: the developer doesn’t need to stop the application to work on fixing a bug.
     \item Improve understanding of a bug: the developer can change as many times as needed the previous state of the application and re-run from that point on the application.
     \item Experiment hypothetical scenarios: create hypothetical states in the application and check the outcomes
-    \item Integrate existing debugger features as extensions: this article presents integrations of the back-in-time debugger with features such as breakpoint and navigation.
 \end{itemize}
 
 Nonetheless, these features will work only in a constrained developing environment in which the user has to follow the conventions of the MVI architecture for reactive code and specify the variables of the code that will constitute the state that the user would like to analyze.
 
 The development of this back-in-time debugger will be built on top of \url{https://github.com/arkivanov/MVIKotlin}, which provides most of the functionalities of a back-in-time debugger for Kotlin, but it does not allow the users to change previous states and debug from a given state with modifications. This project, although enforces the use of the MVI architecture as previously mentioned, is a proven code that works and that has already been used by the developer community to debug. Additions to this project would be a new interface to check the change of the states of the application and the possibility to change a given previous state of the application.
+
+\section{Outline}
+
+In chapter 2 it is presented a validation of the back-in-time debugger implemented by showing an equivalent of the use cases presented in DeloreanJS using the MVIKotlin framework. In Chapter 3 it is presented the internals of how the debuger works and some explanations on the reasoning behind the proposed solution. Chapter 4 exposes similar projects and research done regarding back-in-time debuggers and chapter 5 presents the conclusions and future work of this dissertation.
 
 \endinput
 

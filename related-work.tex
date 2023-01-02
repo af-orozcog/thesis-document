@@ -1,0 +1,10 @@
+\chapter{Related work}
+\label{cha:related-work}
+
+Extensive research has been done in the subject of debuggers. This dissertation focused mostly in back-in-time, time travel and replay type of debuggers for which we can find the following related work:
+
+\begin{itemize}
+ \item \textbf{MVIKotlin}: is a framework that enforces the developer to write its application in both a reactive way and by following the MVI architectural pattern. This framework, in companion with an Intellij plugin and a Time travel server, allows the user to go back in time and replay and examine the changes in the state of the application, but it does not allow the developer to change the state of the program in the past. This framework and project was used as base ground to develop the features and new Intellij plugin discussed previously.
+ \item \textbf{DeloreanJS}: Is a back-in-time debugger for Javascript. This debugger allows users not only to replay events in the previously specified points by the user, but also change the variables of interest the developer wanted to observe throughout the execution of the program. Unlike the back-in-time debugger for Kotlin, DeloreanJS does not force the programmer to use a specific framework for the debugger to be able to replay and change the state of the program in the past.
+ \item \textbf{LiveRecorder for Java}: Is an Intellij plugin that enables users to replay a program. Its use cases focus mostly on the ability to replay a program that ended in an error and be able to find the exact cause that generated it, while allowing the developer to check the variables of interest during the replay execution of the program.
+\end{itemize}
